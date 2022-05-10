@@ -66,3 +66,27 @@ function generatePassword() {
     if (pickSpecial) {
       newPassword = newPassword.concat(specialPW);
     }
+    // pick random cards out of new pool for length of password
+    let finalPassword = ""
+    for (let i = 0; i < pickLength; i++) {
+      let rng =[Math.floor(Math.random() * newPassword.length)];
+      // or finalPassword += possibleCharacters[rng];
+      finalPassword = finalPassword + newPassword[rng];
+    }
+    return finalPassword;
+  };
+  
+  // Get references to the #generate element
+  var generateBtn = document.querySelector("#generate");
+  
+  // Write password to the #password input
+  function writePassword() {
+    var password = generatePassword();
+    var passwordText = document.querySelector("#password");
+
+    passwordText.value = password;
+  }
+
+  // Add event listener to generate button
+  generateBtn.addEventListener("click", writePassword);
+
