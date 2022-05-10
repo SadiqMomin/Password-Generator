@@ -49,3 +49,20 @@ function generatePassword() {
     else {
       alert("Your new password will NOT include special characters");
     }
+    if (pickLowercase === false && pickUppercase === false && pickNumber === false && pickSpecial === false) {
+      return "Please select at least one character type.";
+    };
+  
+    // group selected characters
+    if (pickLowercase) {
+      newPassword = newPassword.concat(lowercasePW);
+    }
+    if (pickUppercase) {
+      newPassword = newPassword.concat(uppercasePW);
+    }
+    if (pickNumber) {
+      newPassword = newPassword.concat(numbersPW);
+    }
+    if (pickSpecial) {
+      newPassword = newPassword.concat(specialPW);
+    }
